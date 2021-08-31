@@ -27,7 +27,7 @@ services:
       - "traefik.port=8088" # port of the traefik instance
       - "traefik.docker.network=traefik-net" # traefik network
       - "traefik.http.routers.study-align-model-gptneo.rule=PathPrefix(`/gptneo`)" # URL path to your backend, replace YOUR-BACKEND with an unique string to name your router
-      - "traefik.http.middlewares.strip-gptneo.prefixes=/gptneo" # declare strip prefix middleware from above, replace strip-YOUR-PATH with an unique name
+      - "traefik.http.middlewares.strip-gptneo.stripprefix.prefixes=/gptneo" # declare strip prefix middleware from above, replace strip-YOUR-PATH with an unique name
       - "traefik.http.routers.study-align-model-gptneo.middlewares=strip-gptneo@docker"
 
     
