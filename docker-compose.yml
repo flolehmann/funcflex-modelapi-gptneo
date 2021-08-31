@@ -8,7 +8,7 @@ services:
     image: study-align-model-gptneo
     build: code
     ports:
-      - "8008:80"
+      - "8010:80"
     networks:
       - study-align-model-network
     command: ["uvicorn", "main:app", "--host", "0.0.0.0", "--debug", "--port", "80", "--reload-dir", "/app"]
@@ -24,7 +24,7 @@ services:
 #      - /etc/letsencrypt/:/etc/letsencrypt/
     ports:
       - 8090:8080
-      - 444:443
+    #  - 444:443
     depends_on:
       - study-align-model-gptneo
     networks:
