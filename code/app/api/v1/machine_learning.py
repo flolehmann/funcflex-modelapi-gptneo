@@ -28,7 +28,12 @@ else:
 async def predict(data: schema.prediction.PredictionInput):
     preprocess_text = data.input.strip().replace("\n", "")
 
-    output = generator(preprocess_text, do_sample=True, max_length=500)
+    output = generator(preprocess_text,
+                       max_length=50,
+                       num_beams=5,
+                       no_repeat_ngram_size=2,
+                       num_return_sequences=5,
+                       early_stopping=True)
     result = output[0]["generated_text"].replace("\n", "")
     return {
         "prediction": result,
