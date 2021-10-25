@@ -29,7 +29,7 @@ async def predict(data: schema.prediction.PredictionInput):
     preprocess_text = data.input.strip().replace("\n", "")
 
     output = generator(preprocess_text,
-                       max_length=50,
+                       max_length=150,
                        num_beams=5,
                        no_repeat_ngram_size=2,
                        num_return_sequences=5,
